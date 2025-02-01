@@ -61,6 +61,9 @@ jobs:
 
       - uses: actions-rs/toolchain@v1
 
+      - name: setup-docker
+        uses: docker-practice/actions-setup-docker@v1
+
       - uses: actions/cache@v2
         with:
           path: |
