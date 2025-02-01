@@ -61,9 +61,6 @@ jobs:
 
       - uses: actions-rs/toolchain@v1
 
-      - name: setup-docker
-        uses: docker-practice/actions-setup-docker@v1
-
       - uses: actions/cache@v2
         with:
           path: |
@@ -73,7 +70,7 @@ jobs:
           key: ${{ runner.os }}-cargo-${{ matrix.features }}
 
       - name: Start SQL Server ${{matrix.database}}
-        run: DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml up -d mssql-${{matrix.database}}
+        run: DOCKER_BUILDKIT=1 docker compose -f docker-compose.yml up -d mssql-${{matrix.database}}
 
       - name: Install dependencies
         run: sudo apt install -y openssl libkrb5-dev
