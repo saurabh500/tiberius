@@ -214,8 +214,8 @@ jobs:
         run: |
 
           # Install Docker CLI
-          brew install docker
-
+          brew install docker colima
+          colima start
           # Verify installation
           docker --version
           docker info
