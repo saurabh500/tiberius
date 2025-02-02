@@ -208,7 +208,17 @@ jobs:
 
       - uses: actions-rs/toolchain@v1
 
-      - uses: docker-practice/actions-setup-docker@master
+      - name: Install Docker on macOS
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+
+          # Install Docker CLI
+          brew install docker
+
+          # Verify installation
+          docker --version
+          docker info
 
       - name: Start SQL Server ${{matrix.database}}
         run: DOCKER_BUILDKIT=1 docker compose -f docker-compose.yml up -d mssql-${{matrix.database}}
