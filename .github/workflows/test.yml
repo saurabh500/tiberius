@@ -40,7 +40,6 @@ jobs:
       fail-fast: false
       matrix:
         database:
-          - 2017
           - 2019
           - 2022
           - azure-sql-edge
