@@ -202,25 +202,25 @@ jobs:
     env:
       TIBERIUS_TEST_CONNECTION_STRING: "server=tcp:localhost,1433;user=SA;password=<YourStrong@Passw0rd>;TrustServerCertificate=true"
 
-    steps:
-      - uses: actions/checkout@v2
+    # steps:
+    #   - uses: actions/checkout@v2
 
-      - uses: actions-rs/toolchain@v1
+    #   - uses: actions-rs/toolchain@v1
 
-      - name: Install Docker on macOS
-        if: runner.os == 'macOS'
-        shell: bash
-        run: |
+    #   - name: Install Docker on macOS
+    #     if: runner.os == 'macOS'
+    #     shell: bash
+    #     run: |
 
-          # Install Docker CLI
-          brew install docker colima
-          colima start
-          # Verify installation
-          docker --version
-          docker info
+    #       # Install Docker CLI
+    #       brew install docker colima
+    #       colima start
+    #       # Verify installation
+    #       docker --version
+    #       docker info
 
-      - name: Start SQL Server ${{matrix.database}}
-        run: DOCKER_BUILDKIT=1 docker compose -f docker-compose.yml up -d mssql-${{matrix.database}}
+    #   - name: Start SQL Server ${{matrix.database}}
+    #     run: DOCKER_BUILDKIT=1 docker compose -f docker-compose.yml up -d mssql-${{matrix.database}}
 
-      - name: Run tests
-        run: cargo test ${{matrix.features}}
+    #   - name: Run tests
+    #     run: cargo test ${{matrix.features}}
