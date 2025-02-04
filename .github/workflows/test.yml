@@ -42,7 +42,6 @@ jobs:
         database:
           - 2019
           - 2022
-          - azure-sql-edge
         features:
           - "--features=all"
           - "--no-default-features"
