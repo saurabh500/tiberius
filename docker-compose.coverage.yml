@@ -1,0 +1,9 @@
+services:
+  tiberius-data-coverage:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: tiberius-data-coverage-29c03293
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "TiberiusCov!2026"
+    ports:
+      - "15443:1433"
